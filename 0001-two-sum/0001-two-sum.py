@@ -15,6 +15,9 @@ class Solution(object):
                 return output
             numSet.add(nums[i]) 
             
+        # no solution found
+        return []
+            
 
             
             
