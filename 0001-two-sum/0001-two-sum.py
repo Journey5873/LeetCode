@@ -1,18 +1,13 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        # make a set
+        # make a set to store complements
         numSet =  set()
-        
-        # make output list
-        output = []
 
         # check the nums list
         for i in range(len(nums)):
             num = target - nums[i]
             if num in numSet:
-                output.append(i)
-                output.append(nums.index(num))
-                return output
+                return [i, nums.index(num)]
             numSet.add(nums[i]) 
             
         # no solution found
