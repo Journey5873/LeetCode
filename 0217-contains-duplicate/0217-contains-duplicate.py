@@ -1,10 +1,9 @@
 class Solution(object):
     def containsDuplicate(self, nums):
-        numsCounter = Counter(nums)
+        duplicatedSet = set()
         
-        for count in numsCounter.values():
-            if count > 1:
+        for num in nums:
+            if num in duplicatedSet:
                 return True
+            duplicatedSet.add(num)
         return False
-        
-        
