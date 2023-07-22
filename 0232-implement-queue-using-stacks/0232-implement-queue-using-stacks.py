@@ -9,7 +9,13 @@ class MyQueue():
         return None
 
     def pop(self):
-        self.peek()
+        if not self.outStack:
+            i = 0
+            lenght = len(self.inStack)
+            while i in range (0, lenght):
+                value = self.inStack.pop()
+                self.outStack.append(value)
+                i += 1
         return self.outStack.pop()
 
     def peek(self):
@@ -27,3 +33,8 @@ class MyQueue():
             return True
         else:
             return False
+        
+queue = MyQueue()
+queue.push(1)
+queue.push(2)
+print(queue.peek())
