@@ -33,8 +33,3 @@ class MyQueue():
             return True
         else:
             return False
-        
-queue = MyQueue()
-queue.push(1)
-queue.push(2)
-print(queue.peek())
