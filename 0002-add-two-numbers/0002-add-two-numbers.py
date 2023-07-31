@@ -35,5 +35,4 @@ class Solution(object):
         if temp != 0:
             node = ListNode(temp)
             retNode.next = node
-            retNode = retNode.next
         return head.next
