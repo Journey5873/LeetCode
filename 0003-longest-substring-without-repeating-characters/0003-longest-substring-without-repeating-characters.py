@@ -5,9 +5,8 @@ class Solution:
         charIndexMap = {}
 
         for end in range(len(s)):
-            if s[end] in charIndexMap and charIndexMap[s[end]] >= start:
+            if s[end] in charIndexMap and start <= charIndexMap[s[end]]:
                 start = charIndexMap[s[end]] + 1
             charIndexMap[s[end]] = end
-            maxLength = max(maxLength, end - start + 1)
-
+            maxLength = max(maxLength, end-start+1)
         return maxLength
