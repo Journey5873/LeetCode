@@ -1,12 +1,12 @@
 class Solution:
     def lengthOfLongestSubstring(self, s):
-        maxLength = 0
+        maxLenght = 0 
         start = 0
-        charIndexMap = {}
+        lastIndex = {}
 
         for end in range(len(s)):
-            if s[end] in charIndexMap and start <= charIndexMap[s[end]]:
-                start = charIndexMap[s[end]] + 1
-            charIndexMap[s[end]] = end
-            maxLength = max(maxLength, end-start+1)
-        return maxLength
+            if s[end] in lastIndex and start <= lastIndex[s[end]]:
+                start = lastIndex[s[end]] + 1
+            lastIndex[s[end]] = end
+            maxLenght = max(maxLenght, end - start + 1)
+        return maxLenght
