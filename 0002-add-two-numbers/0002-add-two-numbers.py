@@ -5,25 +5,25 @@
 #         self.next = next
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
+        carry = 0
+        sum = 0
         retNode = ListNode()
         head = retNode
-        carry = 0
-
+        
         while l1 or l2 or carry:
-            sumNum = carry
+            sum = carry
 
             if l1:
-                sumNum += l1.val
+                sum += l1.val
                 l1 = l1.next
-
             if l2:
-                sumNum += l2.val
+                sum += l2.val
                 l2 = l2.next
-
-            carry = sumNum // 10
-            sumNum = sumNum % 10
-
-            retNode.next = ListNode(sumNum)
+            
+            carry = sum // 10
+            num = sum % 10
+            
+            retNode.next = ListNode(num)
             retNode = retNode.next
-
+        
         return head.next
