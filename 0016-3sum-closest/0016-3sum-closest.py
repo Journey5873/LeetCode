@@ -1,7 +1,6 @@
 class Solution(object):
     def threeSumClosest(self, nums, target):
         nums.sort()
-        threeSumList = []
         closestNum = float('inf')
 
         for i in range(len(nums)-2):
