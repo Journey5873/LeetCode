@@ -17,8 +17,8 @@ class Solution(object):
             currentDigit = nextDigit[0]
             letters = dic[currentDigit]
 
-            for i in range(len(letters)):
-                dfs(currentCombination + letters[i], nextDigit[1:])
+            for letter in letters:
+                dfs(currentCombination + letter, nextDigit[1:])
 
         dfs("", digitsList)
         
