@@ -10,13 +10,11 @@ class Solution(object):
                 top = ""
                 if stack:
                     top = stack[-1]
-                if c == ")" and top == "(" or \
-                c == "}" and top == "{" or \
-                c == "]" and top == "[":
-                    stack.pop()
-                else:
+                if c == ")" and top != "(" or \
+                c == "}" and top != "{" or \
+                c == "]" and top != "[":
                     return False
+                stack.pop()
         if stack:
             return False
         return True
-    
