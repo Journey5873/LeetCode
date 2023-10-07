@@ -4,6 +4,9 @@ class Solution(object):
         INT_MIN = -2**31
         isNegative = False
 
+        if x < INT_MIN or x > INT_MAX:
+            return 0
+
         if x < 0:
             isNegative = True
             x = -x
