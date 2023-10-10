@@ -2,30 +2,24 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-
-class Solution:
+class Solution(object):
     def reverseKGroup(self, head, k):
-        def reverse_linked_list(head, k):
-            prev = None
-            current = head
-            while current and k > 0:
-                next_node = current.next
-                current.next = prev
-                prev = current
-                current = next_node
-                k -= 1
-            return prev
-
-        count = 0
-        current = head
-        while current and count < k:
-            current = current.next
-            count += 1
-
-        if count < k:
+        if not head:
             return head
-
-        new_head = reverse_linked_list(head, k)
-        head.next = self.reverseKGroup(current, k)
-
-        return new_head
+        tempHead = head
+        i = k
+        while i:
+            tempHead = tempHead.next
+            i -= 1
+            if not tempHead and i > 0:
+                return head
+        prev = self.reverseKGroup(tempHead, k)
+        node = head
+        i = k
+        while i:
+            next = node.next
+            node.next = prev
+            prev = node
+            node = next
+            i -= 1
+        return prev
