@@ -20,6 +20,8 @@ class Solution(object):
             next = node.next
             node.next = prev
             prev = node
+            if (i==1):
+                return node
             node = next
             i -= 1
-        return prev
+        return node 
