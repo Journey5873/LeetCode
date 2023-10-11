@@ -3,21 +3,21 @@ class Solution(object):
         nums.sort()
         closestSum = float('inf')
 
-        for i in range(len(nums) - 2):
+        for i in range(len(nums)):
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
             left, right = i + 1, len(nums) - 1
 
             while left < right:
-                currentSum = nums[i] + nums[left] + nums[right]
+                sum = nums[i] + nums[left] + nums[right]
 
-                if currentSum == target:
+                if sum == target:
                     return target
 
-                if abs(currentSum - target) < abs(closestSum - target):
-                    closestSum = currentSum
-
-                if currentSum < target:
+                if abs(sum - target) < abs(closestSum - target):
+                    closestSum = sum
+                if sum < target:
                     left += 1
-                else:
+                if sum > target:
                     right -= 1
-
         return closestSum
