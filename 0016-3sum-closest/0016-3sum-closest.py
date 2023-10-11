@@ -3,7 +3,7 @@ class Solution(object):
         nums.sort()
         closestSum = float('inf')
 
-        for i in range(len(nums)):
+        for i in range(len(nums) - 2):
             if i > 0 and nums[i] == nums[i-1]:
                 continue
             left, right = i + 1, len(nums) - 1
