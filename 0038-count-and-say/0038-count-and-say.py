@@ -16,4 +16,3 @@ class Solution(object):
                 i += count
                 ret += str(count) + num
             return ret
-        return ret
