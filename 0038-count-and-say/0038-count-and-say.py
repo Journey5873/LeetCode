@@ -4,8 +4,8 @@ class Solution(object):
             return "1"
 
         say = ""
+        say = self.countAndSay(n-1)
         for i in range(n, 0, -1):
-            say = self.countAndSay(n-1)
             ret = ""
             i = 0
             while i < len(say):
