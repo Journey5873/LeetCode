@@ -6,9 +6,9 @@ class ListNode(object):
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         carry = 0
-        retNode = ListNode()
-        head = retNode
-        
+        retList = ListNode()
+        head = retList
+
         while l1 or l2 or carry:
             sum = carry
 
@@ -21,8 +21,6 @@ class Solution(object):
             
             carry = sum // 10
             num = sum % 10
-            
-            retNode.next = ListNode(num)
-            retNode = retNode.next
-        
+            retList.next = ListNode(num)
+            retList = retList.next
         return head.next
