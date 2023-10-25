@@ -19,8 +19,8 @@ class Solution(object):
                 sum += l2.val
                 l2 = l2.next
             
-            carry = sum // 10
             num = sum % 10
+            carry = sum // 10
             retList.next = ListNode(num)
             retList = retList.next
         return head.next
