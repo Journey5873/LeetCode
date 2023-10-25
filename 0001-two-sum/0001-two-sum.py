@@ -6,3 +6,4 @@ class Solution(object):
             if diff in diffDic:
                 return [diffDic[diff], i]
             diffDic[nums[i]] = i
+        return []
