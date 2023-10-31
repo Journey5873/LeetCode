@@ -9,8 +9,8 @@ class Solution(object):
 
         for i in range(n):
             fast = fast.next
-        if fast == None:
-            return head.next
+            if fast == None:
+                return head.next
         while fast.next:
             fast = fast.next 
             slow = slow.next
