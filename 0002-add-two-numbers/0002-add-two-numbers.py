@@ -7,7 +7,7 @@ class Solution(object):
     def addTwoNumbers(self, l1, l2):
         carry = 0
         sumList = ListNode()
-        head = sumList
+        dummy = sumList
 
         while l1 or l2 or carry:
             sum = carry
@@ -15,11 +15,13 @@ class Solution(object):
             if l1:
                 sum += l1.val
                 l1 = l1.next
+            
             if l2:
                 sum += l2.val
                 l2 = l2.next
             
-            sumList.next = ListNode(sum % 10)
             carry = sum // 10
+            sumList.next = ListNode(sum%10)
             sumList = sumList.next
-        return head.next
+        
+        return dummy.next
