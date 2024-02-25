@@ -1,29 +1,18 @@
 class Solution(object):
     def reverse(self, x):
-        INT_MAX = 2**31 - 1
-        INT_MIN = -2**31
-        isNegative = False
+        MAX_INT = 2**31 - 1
+        MIN_INT = -2**31
 
-        if x < INT_MIN or x > INT_MAX:
-            return 0
+        is_nagative = True if x < 0 else False
+        revers_x = 0
 
-        if x < 0:
-            isNegative = True
-            x = -x
-
-        reversedX = 0
+        x = abs(x)
         while x:
-            temp = x % 10
-            reversedX = reversedX * 10 + temp
+            revers_x = (10 * revers_x) + (x % 10)
             x = x // 10
-        
-        if isNegative:
-            reversedX = -reversedX
-        
-        if reversedX < INT_MIN or reversedX > INT_MAX:
+
+        revers_x = revers_x if not is_nagative else revers_x * -1
+
+        if revers_x >= MAX_INT or revers_x <= MIN_INT:
             return 0
-        return reversedX
-
-
-solution = Solution()
-print(solution.reverse(-123))
+        return revers_x
