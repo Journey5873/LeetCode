@@ -1,20 +1,20 @@
 class Solution(object):
     def longestCommonPrefix(self, strs):
         
-        if not strs:
+        if len(strs) == 0:
             return ""
         
-        prefix = ""
         prefix = strs[0]
+
         for i in range(1, len(strs)):
-            j=0
-            currentWord = strs[i]
-            while j < len(currentWord) and j < len(prefix):
-                if currentWord[j] != prefix[j]:
+            current_word = strs[i]
+            shorter_word_len = min(len(current_word), len(prefix))
+
+            j = 0
+            while j < shorter_word_len:
+                if prefix[j] != current_word[j]:
                     break
                 j += 1
-            prefix = prefix[0:j]
-        
-        if len(prefix) == 0:
-            return ""
+            prefix = prefix[:j]
         return prefix
+    
