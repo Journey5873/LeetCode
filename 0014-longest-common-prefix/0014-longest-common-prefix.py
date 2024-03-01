@@ -16,5 +16,9 @@ class Solution(object):
                     break
                 j += 1
             prefix = prefix[:j]
+            
+            if not prefix:
+                break  
+            
         return prefix
     
