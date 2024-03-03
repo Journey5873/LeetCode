@@ -4,21 +4,18 @@ class Solution(object):
         if len(strs) == 0:
             return ""
         
+        strs.sort(key=len, reverse=True)
         prefix = strs[0]
 
-        for i in range(1, len(strs)):
-            current_word = strs[i]
-            shorter_word_len = min(len(current_word), len(prefix))
+        for i in range(len(strs) - 1, -1, -1):
+            curr = strs[i]
+            shorter = min(len(prefix), len(curr))
+            idx = shorter
 
-            j = 0
-            while j < shorter_word_len:
-                if prefix[j] != current_word[j]:
+            for j in range(shorter):
+                if prefix[j] != curr[j]:
+                    idx = j
                     break
-                j += 1
-            prefix = prefix[:j]
-            
-            if not prefix:
-                break  
-            
+            prefix = prefix[:idx]    
+
         return prefix
-    
