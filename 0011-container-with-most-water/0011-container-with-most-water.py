@@ -5,8 +5,8 @@ class Solution(object):
         max_area = 0
 
         while left < right:
-            shorter = min(height[left], height[right])
-            area = (right - left) * shorter
+            wall = min(height[left], height[right])
+            area = (right - left) * wall
             max_area = max(max_area, area)
 
             if height[left] < height[right]:
